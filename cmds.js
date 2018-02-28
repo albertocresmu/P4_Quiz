@@ -72,7 +72,7 @@ exports.showCmd = (rl, id) => {
 */
 exports.addCmd = rl => {
 	rl.question(colorize(' Introduzca una pregunta: ', 'red'), question => {
-		rl.question(colorize(' Introduzca la respuesta: ', 'red'), answer => {
+		rl.question(colorize(' Introduzca la respuesta ', 'red'), answer => {
 			model.add(question, answer);
 			log(` ${colorize('Se ha añadido', 'magenta')}: ${question} ${colorize('=>', 'magenta')} ${answer}`);
 			rl.prompt();
@@ -146,13 +146,13 @@ exports.testCmd = (rl, id) => {
 	} else {
 		try {
 			const quiz = model.getByIndex(id);
-			rl.question(colorize('¿'+ quiz.question + '? ', 'red'), answer => {
+			rl.question(colorize(quiz.question + '? ', 'red'), answer => {
 				log(`Su respuesta es:`);
 				if (answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
-					biglog('CORRECTA', 'green');
+					biglog('Correcta', 'green');
 					rl.prompt();
 				} else {
-					biglog('INCORRECTA', 'red');
+					biglog('Incorrecta', 'red');
 					rl.prompt();
 				}
 			});
@@ -180,7 +180,7 @@ exports.playCmd = rl => {
 
 	const playOne = () => {
 		if (toBeResolved.length === 0) {
-			log('No hay nada más que preguntar');
+			log('No hay nada más que preguntar.');
 			log('Fin del examen. Aciertos:');
 			biglog(score, 'magenta');
 			rl.prompt();
@@ -198,7 +198,7 @@ exports.playCmd = rl => {
 					let quiz = model.getByIndex(id);
 					// Elimino en el array el id de la pregunta lanzada.
 					toBeResolved.splice(pos,1);
-					rl.question(colorize('¿'+ quiz.question + '? ', 'red'), answer => {
+					rl.question(colorize(quiz.question + '? ', 'red'), answer => {
 						if (answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
 							score++;
 							log(`CORRECTO - Lleva ${score} aciertos.`);
