@@ -146,7 +146,7 @@ exports.testCmd = (rl, id) => {
 	} else {
 		try {
 			const quiz = model.getByIndex(id);
-			rl.question(colorize(quiz.question + '? ', 'red'), answer => {
+			rl.question(`${colorize(quiz.question + '? ', 'red')} `, answer => {
 				log(`Su respuesta es:`);
 				if (answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
 					biglog('Correcta', 'green');
@@ -198,7 +198,7 @@ exports.playCmd = rl => {
 					let quiz = model.getByIndex(id);
 					// Elimino en el array el id de la pregunta lanzada.
 					toBeResolved.splice(pos,1);
-					rl.question(colorize(quiz.question + '? ', 'red'), answer => {
+					rl.question(`${colorize(quiz.question + '?', 'red')}`, answer => {
 						if (answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
 							score++;
 							log(`CORRECTO - Lleva ${score} aciertos.`);
