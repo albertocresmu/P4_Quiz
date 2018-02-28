@@ -1,5 +1,5 @@
 {
-  "name": "p2_quiz",
+  "name": "quiz",
   "version": "1.0.0",
   "description": "Proyecto Quiz",
   "main": "main.js",
@@ -12,7 +12,7 @@
     "core",
     "node"
   ],
-  "author": "Alberto",
+  "author": "Alberto Crespo",
   "license": "Unlicense",
   "dependencies": {
     "chalk": "^2.3.1",
