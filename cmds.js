@@ -147,12 +147,13 @@ exports.testCmd = (rl, id) => {
 		try {
 			const quiz = model.getByIndex(id);
 			rl.question(`${colorize(quiz.question + '? ', 'red')} `, answer => {
-				log(`Su respuesta es:`);
 				if (answer.toLowerCase().trim() === quiz.answer.toLowerCase().trim()){
-					biglog('CORRECTO', 'green');
+					log('Su respuesta es correcta.');
+					biglog('Correcta', 'green');
 					rl.prompt();
 				} else {
-					biglog('INCORRECTO', 'red');
+					log('Su respuesta es incorrecta.');
+					biglog('Incorrecta', 'red');
 					rl.prompt();
 				}
 			});
@@ -161,6 +162,7 @@ exports.testCmd = (rl, id) => {
 			rl.prompt();
 		}
 	}
+	rl.prompt();
 };
 
 /**
