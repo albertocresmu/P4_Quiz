@@ -314,7 +314,7 @@ exports.playCmd = (socket, rl) => {
 *
 * @param rl	Objeto readline usado para implementar el CLI.
 */
-exports.creditsCmd = rl => {
+exports.creditsCmd = (socket, rl) => {
 	log(socket, 'Autor de la práctica:');
 	log(socket, 'ALBERTO', 'green');
 	rl.prompt();
@@ -325,6 +325,7 @@ exports.creditsCmd = rl => {
 *
 * @param rl	Objeto readline usado para implementar el CLI.
 */
-exports.quitCmd = rl => {
+exports.quitCmd = (socket, rl) => {
 	rl.close();
+	socket.end();
 };
